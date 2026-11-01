@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madeleine Coiffeur · Análise 2026</title>
+<link rel="icon" href="../assets/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: salon-lookbook report — dark ground with gold, like the brand's best carousels; one centered reading column with wider image rows. */
+  :root {
+    --bg: #faf7f2; --panel: #ffffff; --ink: #1d1813; --muted: #6f655b; --line: #e7ded2;
+    --gold: #a77a2c; --orange: #d4691f; --soft: #f3ece2; --good: #2f7d4f; --bad: #b4412e;
+    --display: "Bodoni Moda", "Didot", Georgia, serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #12100e; --panel: #1b1815; --ink: #f2ebe1; --muted: #a99d8f; --line: #2e2923;
+    --gold: #d6aa5c; --orange: #f08a3c; --soft: #221e1a; --good: #6cc391; --bad: #ec7b66; color-scheme: dark; } }
+  :root[data-theme="dark"] {
+    --bg: #12100e; --panel: #1b1815; --ink: #f2ebe1; --muted: #a99d8f; --line: #2e2923;
+    --gold: #d6aa5c; --orange: #f08a3c; --soft: #221e1a; --good: #6cc391; --bad: #ec7b66; color-scheme: dark; }
+
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 64px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; line-height: 1.15; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+  h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+  h3 { font-size: 1.3rem; }
+  p { margin: 0; max-width: 68ch; }
+  .eyebrow { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .sec { display: grid; gap: 22px; }
+  .sec-head { display: grid; gap: 8px; }
+  .lead { color: var(--muted); font-size: 1.05rem; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: center; }
+  .logo { width: 116px; height: 116px; border-radius: 50%; border: 2px solid var(--gold); padding: 4px; background: var(--panel); }
+  .logo img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+  .hero-txt { display: grid; gap: 10px; min-width: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--muted); font-size: .92rem; }
+  .facts b { color: var(--ink); font-weight: 600; }
+
+  /* Key findings */
+  .findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .finding { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; gap: 6px; }
+  .finding strong { font-size: 1.02rem; }
+  .finding p { color: var(--muted); font-size: .95rem; }
+
+  /* Ranking */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+  table { width: 100%; border-collapse: collapse; font-size: .93rem; min-width: 720px; }
+  th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; background: var(--soft); }
+  tr:last-child td { border-bottom: 0; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .rk { font-family: var(--display); font-size: 1.15rem; color: var(--gold); }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--soft); color: var(--muted); white-space: nowrap; }
+  .tag.reel { color: var(--orange); }
+  .note { font-size: .85rem; color: var(--muted); }
+
+  /* Champions */
+  .champs { display: grid; gap: 18px; }
+  .champ { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; align-items: start; }
+  .champ img { width: 100%; max-width: 200px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; display: block; }
+  .champ-body { display: grid; gap: 12px; min-width: 0; }
+  .medal { font-family: var(--display); font-style: italic; color: var(--gold); font-size: 1.05rem; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stat { background: var(--soft); border-radius: 10px; padding: 6px 12px; display: grid; line-height: 1.25; }
+  .stat b { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .why { display: grid; gap: 6px; padding: 0; margin: 0; list-style: none; }
+  .why li { padding-left: 18px; position: relative; }
+  .why li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .why li.miss::before { background: var(--bad); }
+  .link { color: var(--gold); font-weight: 600; text-decoration: none; font-size: .9rem; }
+  .link:hover, .link:focus-visible { text-decoration: underline; }
+
+  /* Visual identity */
+  .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .board { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: grid; gap: 12px; align-content: start; }
+  .board h3 { display: flex; align-items: center; gap: 10px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--good); flex: none; }
+  .board.low .dot { background: var(--bad); }
+  .thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  figure { margin: 0; display: grid; gap: 4px; }
+  figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; }
+  figcaption { font-size: .76rem; color: var(--muted); line-height: 1.35; }
+  figcaption b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .palette { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sw { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); }
+  .sw i { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); display: block; }
+
+  /* CTA */
+  .alert { border: 1px solid var(--bad); background: color-mix(in srgb, var(--bad) 8%, var(--panel)); border-radius: 14px; padding: 18px 20px; display: grid; gap: 8px; }
+  .alert strong { color: var(--bad); }
+  code { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .9em; background: var(--soft); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+
+  /* Ideas */
+  .ideas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .idea { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; gap: 8px; align-content: start; }
+  .idea-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .idea h3 { font-size: 1.15rem; }
+  .goal { display: flex; flex-wrap: wrap; gap: 6px; }
+  .goal span { font-size: .7rem; font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; color: var(--muted); }
+  .idea p { font-size: .93rem; color: var(--muted); }
+  .cta { font-size: .9rem; } .cta b { color: var(--orange); }
+
+  .routine { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .routine div { background: var(--soft); border-radius: 14px; padding: 18px; display: grid; gap: 4px; }
+  .routine b { font-family: var(--display); font-size: 1.7rem; color: var(--gold); font-weight: 500; line-height: 1.1; }
+  .routine span { color: var(--muted); font-size: .92rem; }
+  .topnav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: -40px; }
+  .navbtn { font-size: .85rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; background: var(--panel); }
+  a.navbtn:hover, a.navbtn:focus-visible { border-color: var(--gold); color: var(--gold); }
+  .navbtn.is-on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+  footer { color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); padding-top: 18px; }
+
+  @media (max-width: 760px) {
+    .findings, .compare, .ideas, .two, .routine { grid-template-columns: 1fr; }
+    .champ { grid-template-columns: 1fr; }
+    .champ img { max-width: 220px; }
+    .hero { grid-template-columns: 1fr; }
+    .logo { width: 92px; height: 92px; }
+  }
+  body { margin: 0; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="topnav" aria-label="Páginas do projeto"><a class="navbtn" href="../">← Painel do Instagram</a><span class="navbtn is-on" aria-current="page">Análise</span></nav>
+  <header class="hero">
+    <div class="logo"><img src="../assets/avatar.jpg" alt="Logo da Madeleine Coiffeur"></div>
+    <div class="hero-txt">
+      <span class="eyebrow">Análise do Instagram · @madeleinecoiffeur</span>
+      <h1>O que funcionou em 2026 e o que publicar agora</h1>
+      <div class="facts">
+        <span><b class="num">36</b> posts de jan a out/2026</span>
+        <span><b class="num">18</b> Reels · <b class="num">13</b> imagens · <b class="num">5</b> carrosséis</span>
+        <span><b class="num">3.313</b> seguidores</span>
+        <span>Dados de 31/10/2026</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec" id="resumo">
+    <div class="sec-head"><span class="eyebrow">Resumo</span><h2>Quatro coisas que os números mostram</h2></div>
+    <div class="findings">
+      <div class="finding"><strong>Reels ganham com folga</strong><p>Os 6 posts mais vistos do ano são Reels. Reels bons fazem de 600 a 4.000 visualizações; imagens ficam entre 120 e 290.</p></div>
+      <div class="finding"><strong>Arte com preço não engaja</strong><p>O post "Loiro iluminado R$ 419" teve 391 visualizações e só 4 interações, o pior engajamento do ano.</p></div>
+      <div class="finding"><strong>Poucos seguidores novos</strong><p>De 0 a 4 por dia em outubro. Entre os estáticos, só 1 seguidor veio de um post (12/08). Para Reels, o Instagram não informa esse número.</p></div>
+      <div class="finding"><strong>Sem post, o alcance some</strong><p>De 7 a 15/10 não houve publicação, e o alcance diário caiu para menos de 20 pessoas.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="ranking">
+    <div class="sec-head"><span class="eyebrow">Ranking 2026</span><h2>Os 8 posts que mais renderam</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Post</th><th>Formato</th><th class="n">Visualiz.</th><th class="n">Alcance</th><th class="n">Interações</th><th>Destaque</th></tr></thead>
+        <tbody>
+          <tr><td class="rk">1</td><td>01/06 · Dia dos Namorados (cartão-presente)</td><td><span class="tag reel">Reels</span></td><td class="n">4.057</td><td class="n">2.831</td><td class="n">137</td><td>45 compartilhamentos, 15 comentários</td></tr>
+          <tr><td class="rk">2</td><td>10/03 · Corte camadas longas</td><td><span class="tag reel">Reels</span></td><td class="n">800</td><td class="n">595</td><td class="n">30</td><td>5 compartilhamentos</td></tr>
+          <tr><td class="rk">3</td><td>08/07 · Cliente feliz (luzes masculinas)</td><td><span class="tag reel">Reels</span></td><td class="n">693</td><td class="n">516</td><td class="n">28</td><td>Depoimento real</td></tr>
+          <tr><td class="rk">4</td><td>25/04 · Gloss express</td><td><span class="tag reel">Reels</span></td><td class="n">652</td><td class="n">524</td><td class="n">28</td><td>Resultado em close</td></tr>
+          <tr><td class="rk">5</td><td>16/10 · Reconstrução capilar</td><td><span class="tag reel">Reels</span></td><td class="n">643</td><td class="n">398</td><td class="n">27</td><td>Melhor retenção do ano (só 42% pulam)</td></tr>
+          <tr><td class="rk">6</td><td>31/10 · Madeleine ao microfone</td><td><span class="tag reel">Reels</span></td><td class="n">610</td><td class="n">369</td><td class="n">74</td><td>13 comentários em 1 dia, ainda crescendo</td></tr>
+          <tr><td class="rk">7</td><td>09/07 · Balayage: luz e sofisticação</td><td><span class="tag">Carrossel</span></td><td class="n">488</td><td class="n">219</td><td class="n">22</td><td>Melhor carrossel</td></tr>
+          <tr><td class="rk">8</td><td>05/07 · A sua melhor versão</td><td><span class="tag">Carrossel</span></td><td class="n">486</td><td class="n">217</td><td class="n">21</td><td>Mesma linha preta e dourada</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Interações = curtidas + comentários + salvamentos + compartilhamentos. Posts mais antigos tiveram mais tempo para acumular números.</p>
+  </section>
+
+  <section class="sec" id="campeoes">
+    <div class="sec-head"><span class="eyebrow">Criativos campeões</span><h2>Os 3 que mais ensinam</h2><p class="lead">Escolhidos por visualizações, engajamento e por terem chamada para agendamento ou compra.</p></div>
+    <div class="champs">
+      <article class="champ">
+        <img src="../assets/thumbs/18329456335266396.jpg" alt="Capa do Reels do Dia dos Namorados: duas pessoas conversando no salão">
+        <div class="champ-body">
+          <span class="medal">1º lugar</span>
+          <h3>Dia dos Namorados: cartão-presente</h3>
+          <div class="stats"><div class="stat"><b>4.057</b><span>visualizações</span></div><div class="stat"><b>137</b><span>interações</span></div><div class="stat"><b>45</b><span>compartilh.</span></div><div class="stat"><b>17,6 s</b><span>tempo médio</span></div></div>
+          <ul class="why">
+            <li>Duas pessoas em cena, num formato de conversa ("cara, hoje já é dia 30"), em vez de só mostrar cabelo.</li>
+            <li>Vende um produto, o cartão-presente, com valor livre. Foi o post de compra mais forte do perfil.</li>
+            <li>Marcou uma loja parceira, o que levou o post a outro público.</li>
+          </ul>
+          <a class="link" href="https://www.instagram.com/reel/DZDtvTWPLtP/" target="_blank" rel="noopener">Ver no Instagram</a>
+        </div>
+      </article>
+      <article class="champ">
+        <img src="../assets/thumbs/18490512619105824.jpg" alt="Capa do Reels: Madeleine de branco falando ao microfone">
+        <div class="champ-body">
+          <span class="medal">2º lugar</span>
+          <h3>Madeleine ao microfone</h3>
+          <div class="stats"><div class="stat"><b>610</b><span>visualizações</span></div><div class="stat"><b>74</b><span>interações</span></div><div class="stat"><b>13</b><span>comentários</span></div><div class="stat"><b>20%</b><span>engaj./alcance</span></div></div>
+          <ul class="why">
+            <li>É a própria Madeleine, falando em público: passa autoridade e presença.</li>
+            <li>Melhor taxa de engajamento do ano, com 74 interações para 369 pessoas alcançadas, em apenas 1 dia.</li>
+            <li class="miss">Saiu sem legenda e sem chamada. Era o post certo para pedir agendamento.</li>
+          </ul>
+          <a class="link" href="https://www.instagram.com/reel/DfKRk8ix0eW/" target="_blank" rel="noopener">Ver no Instagram</a>
+        </div>
+      </article>
+      <article class="champ">
+        <img src="../assets/thumbs/18131083759688864.jpg" alt="Capa do Reels de reconstrução capilar com cabelo ruivo">
+        <div class="champ-body">
+          <span class="medal">3º lugar</span>
+          <h3>Reconstrução capilar</h3>
+          <div class="stats"><div class="stat"><b>643</b><span>visualizações</span></div><div class="stat"><b>27</b><span>interações</span></div><div class="stat"><b>42%</b><span>pulam o vídeo</span></div><div class="stat"><b>5</b><span>comentários</span></div></div>
+          <ul class="why">
+            <li>Abre com uma dor do público: "cabelo quebradiço, frágil e sem vida?".</li>
+            <li>Mostra o antes e depois, explica o tratamento e fecha com "Agende sua avaliação".</li>
+            <li>É o post em que as pessoas mais assistem até o fim.</li>
+          </ul>
+          <a class="link" href="https://www.instagram.com/reel/Dej-55kR3kI/" target="_blank" rel="noopener">Ver no Instagram</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="identidade">
+    <div class="sec-head"><span class="eyebrow">Identidade visual</span><h2>Preto e dourado passa mais classe</h2><p class="lead">A marca tem logo em espiral laranja-terracota, tons creme e bege, dourado e fotos de loiros e morenas iluminadas. Entre as artes, as de fundo escuro com dourado são as que mais engajam.</p></div>
+    <div class="palette">
+      <span class="sw"><i style="background:#d4691f"></i>Laranja da logo</span>
+      <span class="sw"><i style="background:#c9a25a"></i>Dourado</span>
+      <span class="sw"><i style="background:#f3e7d7"></i>Creme</span>
+      <span class="sw"><i style="background:#141210"></i>Preto</span>
+    </div>
+    <div class="compare">
+      <div class="board">
+        <h3><span class="dot"></span>Funciona melhor</h3>
+        <div class="thumbs">
+          <figure><img src="../assets/thumbs/18073200794695833.jpg" alt="Carrossel Balayage em fundo escuro"><figcaption>Balayage · <b>22</b> interações</figcaption></figure>
+          <figure><img src="../assets/thumbs/18094325084011878.jpg" alt="Carrossel A sua melhor versão, preto e dourado"><figcaption>Melhor versão · <b>21</b></figcaption></figure>
+          <figure><img src="../assets/thumbs/17947759965114576.jpg" alt="Reels de corte em camadas, foto de costas"><figcaption>Camadas · <b>30</b></figcaption></figure>
+        </div>
+        <p class="note">Cabelo como protagonista, pouco texto, fundo escuro ou foto real do salão.</p>
+      </div>
+      <div class="board low">
+        <h3><span class="dot"></span>Rende menos</h3>
+        <div class="thumbs">
+          <figure><img src="../assets/thumbs/18094096412167293.jpg" alt="Arte de promoção com preço de R$ 419"><figcaption>Promo R$ 419 · <b>4</b> interações</figcaption></figure>
+          <figure><img src="../assets/thumbs/18104335232612694.jpg" alt="Arte de agenda do fim de semana"><figcaption>Agenda · <b>12</b></figcaption></figure>
+          <figure><img src="../assets/thumbs/17883769581488277.jpg" alt="Arte Pronta da cabeça aos pés"><figcaption>Dia de salão · <b>12</b></figcaption></figure>
+        </div>
+        <p class="note">Cara de panfleto: preço, ícones e muito texto. Em setembro, 4 posts seguidos de agenda tiveram de 4 a 12 interações cada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="chamadas">
+    <div class="sec-head"><span class="eyebrow">Chamadas para ação</span><h2>Pedir agendamento dentro de um conteúdo útil</h2></div>
+    <div class="two">
+      <div class="finding"><strong>Funciona</strong><p>Chamada depois de entregar algo: dor + resultado + "agende sua avaliação" (reconstrução), ou presente + "garanta o seu" (Namorados).</p></div>
+      <div class="finding"><strong>Não funciona</strong><p>Só "temos horários, chame no WhatsApp", repetido toda semana. O público cansa e o alcance cai.</p></div>
+    </div>
+    <div class="alert">
+      <strong>Corrigir hoje: o link de WhatsApp da bio</strong>
+      <p>Hoje o link está como <code>wa.me/998141557</code>, sem o 55 e sem o DDD 22, e não leva ao número das legendas, (22) 99814-1557. O certo é <code>wa.me/5522998141557</code>. Do jeito que está, agendamentos podem estar se perdendo.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="sugestoes">
+    <div class="sec-head"><span class="eyebrow">Próximos posts</span><h2>Oito ideias para seguidores, engajamento e agenda</h2></div>
+    <div class="ideas">
+      <div class="idea"><div class="idea-top"><h3>Cartão-presente de Natal</h3><span class="tag reel">Reels em dupla</span></div><div class="goal"><span>Compra</span><span>Alcance</span></div><p>Repete o formato do campeão: conversa engraçada do tipo "ainda não comprou o presente dela?". Publicar no fim de novembro.</p><p class="cta">Chamada: <b>"Garanta o cartão no WhatsApp"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Madeleine responde</h3><span class="tag reel">Reels falado</span></div><div class="goal"><span>Seguidores</span><span>Agenda</span></div><p>Ela olhando para a câmera: "3 erros que estragam seu loiro em casa". Usa a autoridade de mais de 30 anos de experiência.</p><p class="cta">Chamada: <b>"Agende sua avaliação do fio"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Antes e depois em 7 segundos</h3><span class="tag reel">Reels</span></div><div class="goal"><span>Engajamento</span><span>Agenda</span></div><p>Close do cabelo, virada e o resultado. Série com balayage, morena iluminada e corte em camadas.</p><p class="cta">Chamada: <b>na legenda e no texto da tela</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Qual loiro combina com você?</h3><span class="tag">Carrossel preto e dourado</span></div><div class="goal"><span>Seguidores</span><span>Salvamentos</span></div><p>Cinco telas com tons e fotos de clientes, no estilo dos carrosséis que mais engajaram.</p><p class="cta">Chamada: <b>"Comente seu tom que a gente responde"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Black Friday com prazo</h3><span class="tag reel">Reels + story</span></div><div class="goal"><span>Agenda</span></div><p>"Só 10 horários com condição especial até 30/11", com a cliente na cadeira em vez de arte de preço.</p><p class="cta">Chamada: <b>"Garanta seu horário no link da bio"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Depoimento de cliente</h3><span class="tag reel">Reels</span></div><div class="goal"><span>Seguidores</span><span>Confiança</span></div><p>Como o das luzes masculinas: a cliente fala uma frase para a câmera e marca o próprio perfil, levando os seguidores dela.</p><p class="cta">Chamada: <b>"Faça como a ___, agende o seu"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Um dia no Madeleine</h3><span class="tag reel">Reels de bastidores</span></div><div class="goal"><span>Alcance</span><span>Agenda</span></div><p>Café, unhas, sobrancelha e cabelo, com música em alta. Mostra o salão completo sem cara de anúncio.</p><p class="cta">Chamada: <b>"Monte seu dia de beleza, link na bio"</b></p></div>
+      <div class="idea"><div class="idea-top"><h3>Manutenção em casa</h3><span class="tag reel">Reels curto</span></div><div class="goal"><span>Compra</span><span>Salvamentos</span></div><p>"O que usar para o balayage durar": dicas rápidas e os produtos que o salão vende.</p><p class="cta">Chamada: <b>"Peça o kit no salão"</b></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="rotina">
+    <div class="sec-head"><span class="eyebrow">Rotina sugerida</span><h2>Constância antes de tudo</h2></div>
+    <div class="routine">
+      <div><b>3 Reels + 1 carrossel</b><span>por semana, sem passar de 2 dias sem publicar</span></div>
+      <div><b>Toda legenda</b><span>com chamada clara e o WhatsApp (22) 99814-1557</span></div>
+      <div><b>Hoje</b><span>corrigir o link da bio para wa.me/5522998141557</span></div>
+    </div>
+  </section>
+
+  <footer>Fonte: Instagram da Madeleine Coiffeur, lido pelo Windsor.ai em 31/10/2026. Os números do post de 31/10 ainda estavam crescendo.</footer>
+</div>
+
+</body>
+</html>
